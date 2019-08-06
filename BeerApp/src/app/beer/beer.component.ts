@@ -1,6 +1,7 @@
 import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../_service/beer.service';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-beer',
   templateUrl: './beer.component.html',
@@ -9,6 +10,9 @@ import { BeerService } from '../_service/beer.service';
 export class BeerComponent implements OnInit {
   constructor(private beerService: BeerService) {
   myBeer;
+
+  constructor(private beerService: BeerService, private modalService: NgbModal) { }
+
   ngOnInit() {
     this.getBeers();
   }
