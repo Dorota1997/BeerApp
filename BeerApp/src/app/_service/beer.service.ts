@@ -12,4 +12,9 @@ export class BeerService {
     return this.httpClient
     .get(this.url + 'beers');
   }
+
+  getBeerById(id: number) {
+    return this.httpClient
+    .get(this.url + 'beers/' + id);
+  }
 }
