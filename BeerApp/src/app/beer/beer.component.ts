@@ -10,6 +10,9 @@ export class BeerComponent implements OnInit {
   constructor(private beerService: BeerService) {
   myBeer;
   ngOnInit() {
+    this.getBeers();
+  }
+
   getBeers() {
     this.beerService.getBeer().subscribe(beer => {
       console.log(beer);
