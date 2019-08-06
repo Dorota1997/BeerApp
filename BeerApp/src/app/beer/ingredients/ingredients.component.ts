@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BeerService } from 'src/app/_service/beer.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ingredients',
@@ -22,5 +23,8 @@ export class IngredientsComponent implements OnInit {
     });
   }
 
+  closeModal() {
+    this.modalService.dismissAll();
+  }
 
 }
