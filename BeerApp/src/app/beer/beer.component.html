@@ -1,3 +1,37 @@
 <!DOCTYPE html>
 <html>
+<link href='http://fonts.googleapis.com/css?family=Arima+Madurai&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+<body class="container-fluid" style="margin-top: 5%;">
+<div class="row" *ngIf="this.myBeer">
+  <div *ngFor="let beer of myBeer; let i = index" class="col-md-3">
+      <mat-card class="example-card w3-card-4" style="background-color: #b7c5e5; margin-bottom: 5%; height: 500px;">
+        <div class="w3-display-container w3-text-white text-center" style="max-height: 100%; max-width: 100%;">
+          <img src="{{ beer.image_url }}" alt="Beer" style="height: 150px;">  
+        </div>  
+        <div class="text-center fontStyle" style="color: black !important">
+          <h5 class="fontStyle">{{ beer.name }}</h5>
+        </div>
+          <div style="background-color: #b7c5e5">
+            <div>
+              <mat-card-content>
+                <div class="fontStyle text-center"><p style="margin: 0;">Hops:</p>
+                  <p *ngFor="let hop of beer.ingredients.hops" style="font-size: 10px; margin: 0;">
+                      {{ hop.name }} {{ hop.amount.unit }} {{ hop.amount.value }} {{ hop.attribute }} {{ hop.add }}
+                  </p>
+                </div>
+                <div class="fontStyle text-center"><p style="margin: 0;">Malt:</p>
+                  <p *ngFor="let malt of beer.ingredients.malt" style="font-size: 10px; margin: 0;">
+                      {{ malt.name }} {{ malt.amount.unit }} {{ malt.amount.value }}
+                  </p>
+                </div>
+              </mat-card-content>
+            </div>
+            
+          </div>
+        </mat-card>
+  </div>
+</div>
+
+</body>
 </html>
