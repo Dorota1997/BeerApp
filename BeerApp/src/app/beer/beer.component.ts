@@ -2,6 +2,8 @@ import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../_service/beer.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { IngredientsComponent } from './ingredients/ingredients.component';
+
 @Component({
   selector: 'app-beer',
   templateUrl: './beer.component.html',
@@ -10,6 +12,7 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 export class BeerComponent implements OnInit {
   constructor(private beerService: BeerService) {
   myBeer;
+  modalRef: NgbModalRef;
 
   constructor(private beerService: BeerService, private modalService: NgbModal) { }
 
@@ -24,5 +27,8 @@ export class BeerComponent implements OnInit {
       this.myBeer = beer;
     });
   }
+
+  openModal(id: number) {
+    this.modalRef = this.modalService.open(IngredientsComponent, { size: 'sm', backdrop: false });
   }
 }
