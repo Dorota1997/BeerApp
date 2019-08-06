@@ -13,6 +13,12 @@ export class IngredientsComponent implements OnInit {
   ngOnInit() {
   }
 
+  getOneBeer(id: number) {
+    this.beerService.getBeerById(id).subscribe(beer => {
+      console.log(beer);
+      this.beerDetails = beer;
+    });
+  }
 
 
 }
