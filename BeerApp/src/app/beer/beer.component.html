@@ -12,6 +12,7 @@
         <div class="text-center fontStyle" style="color: black !important">
           <h5 class="fontStyle">{{ beer.name }}</h5>
         </div>
+        <button (click)="openModal(beer.id)">Ingredients<i class="fas fa-list-alt"></i></button>
           <div style="background-color: #b7c5e5">
             <div>
               <mat-card-content>
