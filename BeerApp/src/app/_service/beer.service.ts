@@ -5,4 +5,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BeerService {
+  constructor(private httpClient: HttpClient) { }
+
 }
