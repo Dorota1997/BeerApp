@@ -7,6 +7,7 @@ import { BeerService } from 'src/app/_service/beer.service';
   styleUrls: ['./ingredients.component.css']
 })
 export class IngredientsComponent implements OnInit {
+  @Input() beerId: any;
   constructor(private beerService: BeerService, private modalService: NgbModal) { }
 
   ngOnInit() {
