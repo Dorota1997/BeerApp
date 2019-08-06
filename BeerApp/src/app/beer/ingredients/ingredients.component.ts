@@ -8,9 +8,11 @@ import { BeerService } from 'src/app/_service/beer.service';
 })
 export class IngredientsComponent implements OnInit {
   @Input() beerId: any;
+  beerDetails;
   constructor(private beerService: BeerService, private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.getOneBeer(this.beerId);
   }
 
   getOneBeer(id: number) {
