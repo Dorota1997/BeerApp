@@ -5,8 +5,11 @@ import { NgModule } from '@angular/core';
 import { NgModule, Component } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { BeerComponent } from './beer/beer.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { MatCardModule } from '@angular/material';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,10 @@ import { APP_BASE_HREF } from '@angular/common';
    ],
    imports: [
       BrowserModule,
+      AppRoutingModule,
+      HttpClientModule,
+      MatCardModule,
+      NgbModule
    ],
    providers: [{provide: APP_BASE_HREF, useValue: '/'}],
    bootstrap: [
@@ -34,3 +41,4 @@ import { APP_BASE_HREF } from '@angular/common';
    ]
 })
 export class AppModule { }
+
