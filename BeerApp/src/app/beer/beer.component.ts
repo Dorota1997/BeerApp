@@ -30,5 +30,6 @@ export class BeerComponent implements OnInit {
 
   openModal(id: number) {
     this.modalRef = this.modalService.open(IngredientsComponent, { size: 'sm', backdrop: false });
+    this.modalRef.componentInstance.beerId = id;
   }
 }
