@@ -5,16 +5,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BeerService {
-  url = 'https://api.punkapi.com/v2/';
   constructor(private httpClient: HttpClient) { }
 
   getBeer() {
     return this.httpClient
-    .get(this.url + 'beers');
   }
 
   getBeerById(id: number) {
     return this.httpClient
-    .get(this.url + 'beers/' + id);
   }
 }
