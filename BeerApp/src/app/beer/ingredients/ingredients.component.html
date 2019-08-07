@@ -1,7 +1,58 @@
 <!DOCTYPE html>
 <html>
+    
 <head>
+    <link href="/src/styles.css">
 </head>
+
 <body>
+  <!-- Modal Header -->
+<div class="modal-header text-center mx-auto">
+    <h4 class="modal-title text-center mx-auto">Ingredients</h4>
+    <!-- <button type="button" class="close" style="color: white;">
+      <mat-icon>close</mat-icon>
+    </button> -->
+  </div>
+
+  <!-- Modal body -->
+  <div class="modal-body text-center" >
+    <div *ngIf="this.beerDetails">
+      <div *ngFor="let beer of beerDetails">
+          <div class="fontStyle text-center"><p style="margin: 0;">Hops:</p>
+            <p *ngFor="let hop of beer.ingredients.hops">
+                {{ hop.name }} {{ hop.amount.unit }} {{ hop.amount.value }} {{ hop.attribute }} {{ hop.add }}
+            </p>
+          </div>
+          <div class="fontStyle text-center"><p style="margin: 0;">Malt:</p>
+            <p *ngFor="let malt of beer.ingredients.malt">
+                {{ malt.name }} {{ malt.amount.unit }} {{ malt.amount.value }}
+            </p>
+          </div>
+          <div class="fontStyle text-center"><p style="margin: 0;">Yeast:</p>
+            {{ beer.ingredients.yeast }}
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal footer -->
+  <div class="modal-footer">
+    <button type="button" (click)="closeModal()">Powrót</button>
+  </div>
+    
 </body>
 </html>
+
+<!-- <div>
+    <div class="fontStyle text-center"><p style="margin: 0;">Hops:</p>
+      <p *ngFor="let beer of beerDetails" style="font-size: 10px; margin: 0;">
+          {{ beer }}
+          
+      </p>
+    </div>
+     <div class="fontStyle text-center"><p style="margin: 0;">Malt:</p>
+      <p *ngFor="let malt of beerDetails.ingredients.malt" style="font-size: 10px; margin: 0;">
+          {{ malt.name }} {{ malt.amount.unit }} {{ malt.amount.value }}
+      </p>
+    </div> 
+  </div> -->
