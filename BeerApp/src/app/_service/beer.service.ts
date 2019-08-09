@@ -1,6 +1,8 @@
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { IBeer } from '../_models/beer';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +10,9 @@ import { HttpClient } from '@angular/common/http';
 export class BeerService {
   constructor(private httpClient: HttpClient) { }
 
-  getBeer() {
+  getBeer(): Observable<Array<IBeer>> {
     return this.httpClient
-    .get(environment.apiUrl + 'beers');
+    .get<Array<IBeer>>(environment.apiUrl + 'beers');
   }
 
   getBeerById(id: number) {
