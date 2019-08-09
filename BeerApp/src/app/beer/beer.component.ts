@@ -28,6 +28,10 @@ export class BeerComponent implements OnInit {
       console.log(beer);
 
       this.myBeer = beer;
+
+      this.addUniqueFoodToArray();
+    });
+  }
     });
   }
 
