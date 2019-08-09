@@ -11,8 +11,10 @@ import { IngredientsComponent } from './ingredients/ingredients.component';
 })
 export class BeerComponent implements OnInit {
   constructor(private beerService: BeerService) {
-  myBeer;
+  myBeer: IBeer[];
   modalRef: NgbModalRef;
+  uniqueFood: Array<string> = [];
+  isUnique: boolean;
 
   constructor(private beerService: BeerService, private modalService: NgbModal) { }
 
