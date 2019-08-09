@@ -30,6 +30,32 @@ export class BeerComponent implements OnInit {
     });
   }
 
+  addUniqueFoodToArray() {
+    for (const object of this.myBeer) {
+      // console.log('ob => ' + object.food_pairing);
+      for (const foodCandidat of object.food_pairing) {
+        // console.log('foods => ' + foodCandidat);
+        this.isUnique = false;
+
+        for (const uniqueFood of this.uniqueFood) {
+
+          if (foodCandidat === uniqueFood) {
+            this.isUnique = false;
+            break;
+          }
+
+          this.isUnique = true;
+        }
+
+        if (this.isUnique) {
+          this.uniqueFood.push(foodCandidat);
+        }
+      }
+    }
+
+    console.log(this.uniqueFood);
+  }
+
   openModal(id: number) {
     this.modalRef = this.modalService.open(IngredientsComponent, { size: 'sm', backdrop: false });
     this.modalRef.componentInstance.beerId = id;
