@@ -34,6 +34,19 @@ export class BeerComponent implements OnInit {
   addUniqueFoodToArray() {
     for (const object of this.myBeer) {
       // console.log('ob => ' + object.food_pairing);
+
+      // runs only first time when function is called
+      if (this.isFirstTime) {
+        for (const food of object.food_pairing) {
+          this.uniqueFood.push(food);
+        }
+        this.isFirstTime = false;
+        // console.log('State of array');
+        // console.log(this.uniqueFood);
+
+        continue;
+      }
+
       for (const foodCandidat of object.food_pairing) {
         // console.log('foods => ' + foodCandidat);
         this.isUnique = false;
