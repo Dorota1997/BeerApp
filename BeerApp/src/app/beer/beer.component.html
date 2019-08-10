@@ -29,6 +29,12 @@
               </mat-card-content>
             </div>
             
+  <div >
+    <select (change)="selectFood($event.target.value)">
+      <option selected value="everything">Choose food</option>
+      <option *ngFor="let food of this.uniqueFood" value="{{food}}">{{food}}</option>
+    </select>
+  </div>
           </div>
         </mat-card>
   </div>
