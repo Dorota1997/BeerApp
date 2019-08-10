@@ -39,7 +39,35 @@ export class BeerComponent implements OnInit {
       this.addUniqueFoodToArray();
     });
   }
-    });
+
+  selectFood(value: string) {
+    console.log('Wybrane', value);
+    const afterSelectFood = document.getElementById('selectFood');
+    const firstBeerSection = document.getElementById('startBeers');
+
+    if (value !== 'everything') {
+      this.beerService.getRightBeer(value).subscribe(beer => {
+        console.log(beer);
+
+        firstBeerSection.style.display = 'none';
+        if (afterSelectFood.style.display === 'none') {
+          afterSelectFood.style.display = 'block';
+        }
+
+        this.isSelectFood = true;
+        this.matchingBeer = beer;
+        // console.log(this.matchingBeer);
+      });
+    } else {
+      console.log('nic nie zwraca');
+
+      afterSelectFood.style.display = 'none';
+      if (firstBeerSection.style.display === 'none') {
+        firstBeerSection.style.display = 'block';
+      }
+    }
+
+
   }
 
   addUniqueFoodToArray() {
