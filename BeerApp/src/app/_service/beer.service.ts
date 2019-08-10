@@ -19,4 +19,10 @@ export class BeerService {
     return this.httpClient
     .get(environment.apiUrl + 'beers/' + id);
   }
+
+
+  getRightBeer(parameter: string): Observable<Array<IBeer>> {
+    return this.httpClient
+    .get<Array<IBeer>>(environment.apiUrl + 'beers?food=' + parameter);
+  }
 }
