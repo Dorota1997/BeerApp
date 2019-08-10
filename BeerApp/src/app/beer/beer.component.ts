@@ -16,6 +16,9 @@ export class BeerComponent implements OnInit {
   uniqueFood: Array<string> = [];
   isUnique: boolean;
   isFirstTime: boolean;
+  matchingBeerArray: Array<string> = [];
+  matchingBeer: IBeer[];
+  isSelectFood: boolean;
 
   constructor(private beerService: BeerService, private modalService: NgbModal) { }
 
