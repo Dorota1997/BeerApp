@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../_service/beer.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { IngredientsComponent } from './ingredients/ingredients.component';
+import { IBeer } from '../_models/beer';
 
 @Component({
   selector: 'app-beer',
