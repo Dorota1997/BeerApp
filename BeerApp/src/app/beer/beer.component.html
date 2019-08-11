@@ -1,85 +1,74 @@
 <!DOCTYPE html>
 <html>
-<link href='http://fonts.googleapis.com/css?family=Arima+Madurai&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
 <body class="container-fluid" style="margin-top: 5%;">
-  <div >
     <select (change)="selectFood($event.target.value)">
       <option selected value="everything">Choose food</option>
       <option *ngFor="let food of this.uniqueFood" value="{{food}}">{{food}}</option>
     </select>
   </div>
 
-<div id="startBeers">
-  <div class="row" *ngIf="this.myBeer">
-    <div *ngFor="let beer of myBeer; let i = index" class="col-md-3">
-        <mat-card class="example-card w3-card-4" style="background-color: #b7c5e5; margin-bottom: 5%; height: 500px;">
-          <div class="w3-display-container w3-text-white text-center" style="max-height: 100%; max-width: 100%;">
-            <img src="{{ beer.image_url }}" alt="Beer" style="height: 150px;">  
-          </div>  
-          <div class="text-center fontStyle" style="color: black !important">
-            <h5 class="fontStyle">{{ beer.name }}</h5>
-          </div>
-          <button (click)="openModal(beer.id)">Ingredients<i class="fas fa-list-alt"></i></button>
-            <div style="background-color: #b7c5e5">
-              <div>
-                <mat-card-content>
-                  <div class="fontStyle text-center"><p style="margin: 0;">Hops:</p>
-                    <p *ngFor="let hop of beer.ingredients.hops" style="font-size: 10px; margin: 0;">
-                        {{ hop.name }} {{ hop.amount.unit }} {{ hop.amount.value }} {{ hop.attribute }} {{ hop.add }}
-                    </p>
-                  </div>
-                  <div class="fontStyle text-center"><p style="margin: 0;">Malt:</p>
-                    <p *ngFor="let malt of beer.ingredients.malt" style="font-size: 10px; margin: 0;">
-                        {{ malt.name }} {{ malt.amount.unit }} {{ malt.amount.value }}
-                    </p>
-                  </div>
-                </mat-card-content>
-              </div>
-              
-            </div>
-          </mat-card>
-    </div>
-  </div>
-</div>
-    
-
-    <div id="selectFood">
-      <div *ngIf="isSelectFood" >
-        <div class="row" *ngIf="this.matchingBeer">
-          <div *ngFor="let beer of matchingBeer; let i = index" class="col-md-3">
-              <mat-card class="example-card w3-card-4" style="background-color: #b7c5e5; margin-bottom: 5%; height: 500px;">
-                <div class="w3-display-container w3-text-white text-center" style="max-height: 100%; max-width: 100%;">
-                  <img src="{{ beer.image_url }}" alt="Beer" style="height: 150px;">  
-                </div>  
-                <div class="text-center fontStyle" style="color: black !important">
+  <div id="startBeers">
+    <div class="row" *ngIf="this.myBeer">
+      <div *ngFor="let beer of myBeer; let i = index" class="col-md-3">
+          <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="{{ beer.image_url }}" alt="Beer" style="height: 100px">
                   <h5 class="fontStyle">{{ beer.name }}</h5>
                 </div>
-                <button (click)="openModal(beer.id)">Ingredients<i class="fas fa-list-alt"></i></button>
-                  <div style="background-color: #b7c5e5">
-                    <div>
-                      <mat-card-content>
-                        <div class="fontStyle text-center"><p style="margin: 0;">Hops:</p>
-                          <p *ngFor="let hop of beer.ingredients.hops" style="font-size: 10px; margin: 0;">
-                              {{ hop.name }} {{ hop.amount.unit }} {{ hop.amount.value }} {{ hop.attribute }} {{ hop.add }}
-                          </p>
-                        </div>
-                        <div class="fontStyle text-center"><p style="margin: 0;">Malt:</p>
-                          <p *ngFor="let malt of beer.ingredients.malt" style="font-size: 10px; margin: 0;">
-                              {{ malt.name }} {{ malt.amount.unit }} {{ malt.amount.value }}
-                          </p>
-                        </div>
-                      </mat-card-content>
+                <div class="flip-card-back">
+                    <div class="fontStyle text-center"><p style="margin: 0;">Hops:</p>
+                      <p *ngFor="let hop of beer.ingredients.hops" style="font-size: 10px; margin: 0;">
+                          {{ hop.name }} {{ hop.amount.unit }} {{ hop.amount.value }} {{ hop.attribute }} {{ hop.add }}
+                      </p>
                     </div>
-                    
+                    <div class="fontStyle text-center"><p style="margin: 0;">Malt:</p>
+                      <p *ngFor="let malt of beer.ingredients.malt" style="font-size: 10px; margin: 0;">
+                          {{ malt.name }} {{ malt.amount.unit }} {{ malt.amount.value }}
+                      </p>
+                    </div>
+                </div>
+              </div>
+            </div> 
+      </div>
+    </div>
+  </div>
+    
+
+  <div id="selectFood">
+    <div *ngIf="isSelectFood" >
+      <div class="row" *ngIf="this.matchingBeer">
+        <div *ngFor="let beer of matchingBeer; let i = index" class="col-md-3">
+            <div class="flip-card" style="height: 400px">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="{{ beer.image_url }}" alt="Beer" style="height: 100px">
+                    <h5 class="fontStyle">{{ beer.name }}</h5>
                   </div>
-                </mat-card>
-          </div>
+                  <div class="flip-card-back">
+                      <div class="fontStyle text-center"><p style="margin: 0;">Hops:</p>
+                        <p *ngFor="let hop of beer.ingredients.hops" style="font-size: 10px; margin: 0;">
+                            {{ hop.name }} {{ hop.amount.unit }} {{ hop.amount.value }} {{ hop.attribute }} {{ hop.add }}
+                        </p>
+                      </div>
+                      <div class="fontStyle text-center"><p style="margin: 0;">Malt:</p>
+                        <p *ngFor="let malt of beer.ingredients.malt" style="font-size: 10px; margin: 0;">
+                            {{ malt.name }} {{ malt.amount.unit }} {{ malt.amount.value }}
+                        </p>
+                      </div>
+                  </div>
+                </div>
+              </div> 
         </div>
       </div>
     </div>
-    
+  </div>
 
+  <ng-container *ngFor="let number of pageNumbers">
+    <div class="btn myButton" (click)="getBeersOfPage(number)" type="button"><p>{{number}}</p></div>
+  </ng-container>
+  
 
 </body>
 </html>
