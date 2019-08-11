@@ -40,6 +40,16 @@ export class BeerComponent implements OnInit {
     });
   }
 
+  setNumberOfPage() {
+    const value = 325;
+    const numberBeerOnPage = 25;
+    const result = value / numberBeerOnPage;
+
+    for (let i = 1; i <= result; i++) {
+      this.pageNumbers.push(i);
+    }
+    console.log(this.pageNumbers);
+  }
   selectFood(value: string) {
     console.log('Wybrane', value);
     const afterSelectFood = document.getElementById('selectFood');
