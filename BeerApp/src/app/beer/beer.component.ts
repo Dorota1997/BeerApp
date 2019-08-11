@@ -51,6 +51,17 @@ export class BeerComponent implements OnInit {
     }
     console.log(this.pageNumbers);
   }
+
+  getBeersOfPage(value: number) {
+    console.log(value);
+
+    this.beerService.getPage(value).subscribe(beer => {
+      console.log(beer);
+
+      this.myBeer = beer;
+    });
+  }
+
   selectFood(value: string) {
     console.log('Wybrane', value);
     const afterSelectFood = document.getElementById('selectFood');
