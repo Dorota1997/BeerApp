@@ -20,6 +20,7 @@ export class BeerComponent implements OnInit {
   matchingBeerArray: Array<string> = [];
   matchingBeer: IBeer[];
   isSelectFood: boolean;
+  pageNumbers: Array<number> = [];
 
   constructor(private beerService: BeerService, private modalService: NgbModal) {
     this.isFirstTime = true;
