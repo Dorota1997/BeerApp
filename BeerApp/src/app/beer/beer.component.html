@@ -2,6 +2,45 @@
 <html>
 
 <body class="container-fluid" style="margin-top: 5%;">
+<section>
+  <div id="carouselExampleFade" class="carousel slide carousel-fade">
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+              <img src="assets/nav2.jpg" class="d-block w-100" alt="..." style="z-index: 1;">
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="search-sec" style="z-index: 10;">
+  <div class="container">
+      
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                <!-- <mat-form-field>
+                  <mat-label>Select an option</mat-label>
+                  <mat-select (change)="selectFood($event.target.value)" style="z-index: 100;">
+                    <mat-option selected value="everything">Choose food</mat-option>
+                    <mat-option *ngFor="let food of this.uniqueFood" value="{{food}}">{{food}}</mat-option>
+                  </mat-select>
+                </mat-form-field> -->
+                <select class="form-control search-slt" id="exampleFormControlSelect1" (change)="selectFood($event.target.value)">
+                  <option selected value="everything">Choose food</option>
+                  <option *ngFor="let food of this.uniqueFood" value="{{food}}">{{food}}</option>
+                </select>
+
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                    <button type="button" class="btn btn-danger wrn-btn">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+  </div>
+</section>
     <select (change)="selectFood($event.target.value)">
       <option selected value="everything">Choose food</option>
       <option *ngFor="let food of this.uniqueFood" value="{{food}}">{{food}}</option>
