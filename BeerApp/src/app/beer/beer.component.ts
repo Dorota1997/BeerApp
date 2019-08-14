@@ -35,6 +35,11 @@ export class BeerComponent implements OnInit {
     this.setNumberOfPage();
   }
 
+  randomizeCardBodyColor() {
+    this.tmpColor = this.myColors[Math.floor(Math.random() * this.myColors.length)];
+    return this.tmpColor;
+  }
+
   getBeers() {
     this.beerService.getBeer().subscribe(beer => {
       console.log(beer);
