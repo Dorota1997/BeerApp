@@ -23,57 +23,43 @@
 </section>
 
 <section class="search-sec" style="z-index: 10;">
-  <div class="container">
-      
+  <div class="container"> 
     <div class="row">
         <div class="col-lg-12">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12 p-0">
-                <!-- <mat-form-field>
-                  <mat-label>Select an option</mat-label>
-                  <mat-select (change)="selectFood($event.target.value)" style="z-index: 100;">
-                    <mat-option selected value="everything">Choose food</mat-option>
-                    <mat-option *ngFor="let food of this.uniqueFood" value="{{food}}">{{food}}</mat-option>
-                  </mat-select>
-                </mat-form-field> -->
-                <select class="form-control search-slt" id="exampleFormControlSelect1" (change)="selectFood($event.target.value)">
-                  <option selected value="everything">Choose food</option>
-                  <option *ngFor="let food of this.uniqueFood" value="{{food}}">{{food}}</option>
-                </select>
-
+                  <select class="form-control search-slt" id="exampleFormControlSelect1" (change)="selectFood($event.target.value)">
+                    <option selected value="everything">Choose food</option>
+                    <option *ngFor="let food of this.uniqueFood" value="{{food}}">{{food}}</option>
+                  </select>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                     <button type="button" class="btn btn-danger wrn-btn">Search</button>
                 </div>
             </div>
         </div>
-    </div>
-      
+    </div>   
   </div>
 </section>
-    <select (change)="selectFood($event.target.value)">
-      <option selected value="everything">Choose food</option>
-      <option *ngFor="let food of this.uniqueFood" value="{{food}}">{{food}}</option>
-    </select>
-  </div>
 
+<div>
   <div id="startBeers">
-    <div class="row" *ngIf="this.myBeer">
+    <div class="row col-lg-12" *ngIf="this.myBeer">
       <div *ngFor="let beer of myBeer; let i = index" class="col-md-3">
           <div class="flip-card">
               <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <img src="{{ beer.image_url }}" alt="Beer" style="height: 100px">
+                <div class="flip-card-front mx-auto" [ngStyle]="{'background-color': randomizeCardBodyColor()}">
+                  <img src="{{ beer.image_url }}" alt="Beer" style="height: 180px; margin-top: 30%;">
                   <h5 class="fontStyle">{{ beer.name }}</h5>
                 </div>
                 <div class="flip-card-back">
-                    <div class="fontStyle text-center"><p style="margin: 0;">Hops:</p>
-                      <p *ngFor="let hop of beer.ingredients.hops" style="font-size: 10px; margin: 0;">
+                    <div class="text-center"><p style="margin: 0;">Hops:</p>
+                      <p *ngFor="let hop of beer.ingredients.hops" style="font-size: 11px; margin: 0;">
                           {{ hop.name }} {{ hop.amount.unit }} {{ hop.amount.value }} {{ hop.attribute }} {{ hop.add }}
                       </p>
                     </div>
-                    <div class="fontStyle text-center"><p style="margin: 0;">Malt:</p>
-                      <p *ngFor="let malt of beer.ingredients.malt" style="font-size: 10px; margin: 0;">
+                    <div class="text-center"><p style="margin: 0;">Malt:</p>
+                      <p *ngFor="let malt of beer.ingredients.malt" style="font-size: 11px; margin: 0;">
                           {{ malt.name }} {{ malt.amount.unit }} {{ malt.amount.value }}
                       </p>
                     </div>
@@ -83,41 +69,44 @@
       </div>
     </div>
   </div>
-    
 
   <div id="selectFood">
     <div *ngIf="isSelectFood" >
       <div class="row" *ngIf="this.matchingBeer">
         <div *ngFor="let beer of matchingBeer; let i = index" class="col-md-3">
-            <div class="flip-card" style="height: 400px">
-                <div class="flip-card-inner">
-                  <div class="flip-card-front">
-                    <img src="{{ beer.image_url }}" alt="Beer" style="height: 100px">
-                    <h5 class="fontStyle">{{ beer.name }}</h5>
-                  </div>
-                  <div class="flip-card-back">
-                      <div class="fontStyle text-center"><p style="margin: 0;">Hops:</p>
-                        <p *ngFor="let hop of beer.ingredients.hops" style="font-size: 10px; margin: 0;">
-                            {{ hop.name }} {{ hop.amount.unit }} {{ hop.amount.value }} {{ hop.attribute }} {{ hop.add }}
-                        </p>
-                      </div>
-                      <div class="fontStyle text-center"><p style="margin: 0;">Malt:</p>
-                        <p *ngFor="let malt of beer.ingredients.malt" style="font-size: 10px; margin: 0;">
-                            {{ malt.name }} {{ malt.amount.unit }} {{ malt.amount.value }}
-                        </p>
-                      </div>
-                  </div>
+          <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front mx-auto" [ngStyle]="{'background-color': randomizeCardBodyColor()}">
+                  <img src="{{ beer.image_url }}" alt="Beer" style="height: 150px; margin-top: 15%;">
+                  <h5 class="fontStyle">{{ beer.name }}</h5>
                 </div>
-              </div> 
+                <div class="flip-card-back">
+                    <div class="text-center"><p style="margin: 0;">Hops:</p>
+                      <p *ngFor="let hop of beer.ingredients.hops" style="font-size: 11px; margin: 0;">
+                          {{ hop.name }} {{ hop.amount.unit }} {{ hop.amount.value }} {{ hop.attribute }} {{ hop.add }}
+                      </p>
+                    </div>
+                    <div class="text-center"><p style="margin: 0;">Malt:</p>
+                      <p *ngFor="let malt of beer.ingredients.malt" style="font-size: 11px; margin: 0;">
+                          {{ malt.name }} {{ malt.amount.unit }} {{ malt.amount.value }}
+                      </p>
+                    </div>
+                </div>
+              </div>
+            </div> 
         </div>
       </div>
     </div>
   </div>
+  
+
+  
+
 
   <ng-container *ngFor="let number of pageNumbers">
     <div class="btn myButton" (click)="getBeersOfPage(number)" type="button"><p>{{number}}</p></div>
   </ng-container>
-  
+</div>
 
 </body>
 </html>
