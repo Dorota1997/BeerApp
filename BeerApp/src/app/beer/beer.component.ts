@@ -23,6 +23,8 @@ export class BeerComponent implements OnInit {
   pageNumbers: Array<number> = [];
   tmpColor: string;
 
+  myColors: Array<string> = ['#96ceb4', '#ffeead', '#ff6f69', '#ffcc5c', '#88d8b0', '#eea990', '#a39193', '#f69f72',
+                            '#f66b6b', '#ab8667', '#98e287', '#6ea4e1', '#db6972'];
   constructor(private beerService: BeerService, private modalService: NgbModal) {
     this.isFirstTime = true;
     this.isSelectFood = false;
