@@ -37,13 +37,6 @@ export class BeerComponent implements OnInit {
     return this.tmpColor;
   }
 
-  randomizeCardFoldColor() {
-    // this.tmpColor = this.myColors[3];
-    const hexColor = this.tmpColor.slice(1, 7);
-    const newColor = parseInt(hexColor, 16) + 32;
-    return '#' + newColor.toString(16);
-  }
-
   getBeers() {
     this.beerService.getBeer().subscribe(beer => {
       console.log(beer);
