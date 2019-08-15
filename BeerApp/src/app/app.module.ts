@@ -1,4 +1,3 @@
-import { IngredientsComponent } from './beer/ingredients/ingredients.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,8 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
    declarations: [
       AppComponent,
-      BeerComponent,
-      IngredientsComponent
+      BeerComponent
    ],
    imports: [
       BrowserModule,
