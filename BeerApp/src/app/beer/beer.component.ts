@@ -1,4 +1,3 @@
-import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../_service/beer.service';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
@@ -11,7 +10,6 @@ import { IBeer } from '../_models/beer';
   styleUrls: ['./beer.component.css']
 })
 export class BeerComponent implements OnInit {
-  constructor(private beerService: BeerService) {
   myBeer: IBeer[];
   modalRef: NgbModalRef;
   uniqueFood: Array<string> = [];
